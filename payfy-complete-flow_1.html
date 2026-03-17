@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payfy - Políticas de Gastos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B35;
+            --primary-orange-dark: #E85A28;
+            --primary-orange-light: #FFF5F0;
+            
+            --success-green: #10B981;
+            --success-green-light: #D1FAE5;
+            
+            --warning-yellow: #F59E0B;
+            --warning-yellow-light: #FEF3C7;
+            
+            --info-blue: #3B82F6;
+            --info-blue-light: #DBEAFE;
+            
+            --purple: #8B5CF6;
+            --purple-light: #EDE9FE;
+            
+            --danger-red: #EF4444;
+            --danger-red-light: #FEE2E2;
+            
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+            
+            --white: #FFFFFF;
+            --border: #E5E7EB;
+            
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+            --radius-xl: 12px;
+            --radius-2xl: 16px;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: var(--spacing-lg) 0;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-orange);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--radius-lg);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-orange-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--gray-700);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+        }
+
+        /* Policies Grid */
+        .policies-section {
+            margin-top: var(--spacing-xl);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .policies-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        .policy-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .policy-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .policy-header {
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            padding: var(--spacing-lg) var(--spacing-xl);
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .policy-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .policy-type {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .policy-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .policy-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .policy-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-new {
+            background: var(--success-green-light);
+            color: var(--success-green);
+        }
+
+        .policy-description {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        .policy-body {
+            padding: var(--spacing-xl);
+            display: none;
+            background: var(--gray-50);
+        }
+
+        .policy-card.expanded .policy-body {
+            display: block;
+        }
+
+        /* Rule Builder Structure */
+        .rule-builder {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .trigger-block {
+            background: var(--white);
+            border: 2px solid var(--info-blue);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .trigger-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .trigger-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--info-blue-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--info-blue);
+            font-size: 20px;
+        }
+
+        .trigger-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            flex: 1;
+        }
+
+        .trigger-badge {
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .trigger-content {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding-left: 52px;
+        }
+
+        .trigger-label {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .trigger-value {
+            background: var(--success-green-light);
+            color: var(--success-green);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            border: 1.5px solid var(--success-green);
+        }
+
+        .connector {
+            width: 2px;
+            height: 24px;
+            background: var(--gray-300);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .connector::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--gray-300);
+        }
+
+        .condition-block {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .condition-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .condition-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+            font-size: 18px;
+        }
+
+        .condition-title {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .condition-row {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            padding-left: 48px;
+            flex-wrap: wrap;
+        }
+
+        .condition-keyword {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .condition-field {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .condition-value {
+            background: var(--gray-100);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--gray-900);
+            font-weight: 500;
+        }
+
+        .nested-actions {
+            margin-left: 48px;
+            border-left: 2px solid var(--gray-200);
+            padding-left: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .action-block {
+            background: var(--gray-50);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .action-content {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .action-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .action-icon.approve {
+            background: var(--success-green-light);
+            color: var(--success-green);
+        }
+
+        .action-icon.require {
+            background: var(--warning-yellow-light);
+            color: var(--warning-yellow);
+        }
+
+        .action-icon.ai {
+            background: var(--purple-light);
+            color: var(--purple);
+        }
+
+        .action-keyword {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .action-agent {
+            background: var(--purple-light);
+            color: var(--purple);
+            padding: 6px 14px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            border: 1.5px solid var(--purple);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-approver {
+            background: var(--warning-yellow-light);
+            color: #D97706;
+            padding: 6px 14px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .approver-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #D97706;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .final-action {
+            background: var(--success-green-light);
+            border: 1.5px solid var(--success-green);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .final-action-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--success-green);
+            font-size: 20px;
+        }
+
+        .final-action-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .expand-icon {
+            transition: transform 0.3s;
+            color: var(--gray-500);
+            margin-left: auto;
+        }
+
+        .policy-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .rules-preview {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .rules-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-sm);
+            border-left: 3px solid var(--rule-color);
+        }
+
+        .rule-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--rule-color);
+            flex-shrink: 0;
+        }
+
+        .rule-text {
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .policy-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-md);
+            background: var(--gray-100);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+            font-size: 20px;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--gray-200);
+            color: var(--gray-900);
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .modal-body {
+            padding: var(--spacing-xl);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .tab {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--gray-600);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: -2px;
+        }
+
+        .tab:hover {
+            color: var(--gray-900);
+        }
+
+        .tab.active {
+            color: var(--primary-orange);
+            border-bottom-color: var(--primary-orange);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-area:hover,
+        .upload-area.dragover {
+            border-color: var(--primary-orange);
+            background: var(--primary-orange-light);
+        }
+
+        .upload-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--gray-100);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .upload-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .upload-subtitle {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .upload-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: 10px 20px;
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .upload-button:hover {
+            background: var(--primary-orange-dark);
+        }
+
+        .upload-info {
+            margin-top: var(--spacing-md);
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        /* Processing */
+        .processing-container {
+            display: none;
+        }
+
+        .processing-container.active {
+            display: block;
+        }
+
+        .processing-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .processing-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--purple-light), var(--info-blue-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .processing-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .processing-subtitle {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+
+        .processing-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .processing-step {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+
+        .processing-step.active {
+            background: var(--primary-orange-light);
+            border: 1px solid var(--primary-orange);
+        }
+
+        .processing-step.completed {
+            background: var(--success-green-light);
+        }
+
+        .processing-step-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .processing-step-text {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .processing-step-status {
+            font-size: 11px;
+            color: var(--gray-500);
+            font-weight: 600;
+        }
+
+        .processing-step.completed .processing-step-status {
+            color: var(--success-green);
+        }
+
+        /* Success State */
+        .success-container {
+            display: none;
+            text-align: center;
+        }
+
+        .success-container.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--success-green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--success-green);
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .success-subtitle {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .success-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .success-stat {
+            padding: var(--spacing-lg);
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+
+        .success-stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .success-stat-label {
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        .success-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+        }
+
+        /* Hidden State */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .policy-card {
+            animation: fadeIn 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        .policy-card:nth-child(1) { animation-delay: 0.1s; }
+        .policy-card:nth-child(2) { animation-delay: 0.2s; }
+        .policy-card:nth-child(3) { animation-delay: 0.3s; }
+        .policy-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📊</div>
+                <span>Payfy</span>
+            </div>
+            <button class="btn btn-primary" onclick="openNewPolicyModal()">
+                <span>✨</span>
+                <span>Criar Nova Política</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div>
+            <h1 class="page-title">Políticas de Gastos</h1>
+            <p class="page-subtitle">Gerencie suas políticas de aprovação e configurações</p>
+        </div>
+
+        <!-- Políticas Grid -->
+        <div class="policies-section" id="policiesSection">
+            <div class="section-header">
+                <h2 class="section-title">Políticas Ativas (4)</h2>
+            </div>
+
+            <div class="policies-grid">
+                <!-- Política 1: Solicitações -->
+                <div class="policy-card" style="--bg-start: #F0F9FF; --bg-end: #E0F2FE;" onclick="togglePolicy(this)">
+                    <div class="policy-header">
+                        <div class="policy-header-top">
+                            <div class="policy-type">
+                                <div class="policy-icon">📋</div>
+                                <div>
+                                    <div class="policy-name">Política de Solicitações</div>
+                                </div>
+                            </div>
+                            <div class="policy-badge badge-new">Nova</div>
+                            <svg class="expand-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <p class="policy-description">Regras para aprovação de solicitações de compra de cartões corporativos</p>
+                    </div>
+                    <div class="policy-body">
+                        <div class="rule-builder">
+                            <!-- Trigger Block -->
+                            <div class="trigger-block">
+                                <div class="trigger-header">
+                                    <div class="trigger-icon">⚡</div>
+                                    <div class="trigger-title">Quando a solicitação ocorre</div>
+                                    <div class="trigger-badge">Gatilho</div>
+                                </div>
+                                <div class="trigger-content">
+                                    <span class="trigger-label">Quando</span>
+                                    <span class="trigger-value">Tipo é Solicitação de Cartão</span>
+                                </div>
+                            </div>
+
+                            <div class="connector"></div>
+
+                            <!-- Main Flow: Policy Agent -->
+                            <div class="condition-block">
+                                <div class="condition-header">
+                                    <div class="condition-icon">🤖</div>
+                                    <div class="condition-title">Agente de Política IA</div>
+                                </div>
+                                <div class="condition-row">
+                                    <span class="action-agent">
+                                        <span>✨</span>
+                                        <span>Agente de política</span>
+                                    </span>
+                                    <span class="action-keyword">irá aprovar ou escalar para</span>
+                                    <span class="action-approver">
+                                        <span class="approver-avatar">G</span>
+                                        <span>Gestor</span>
+                                    </span>
+                                </div>
+
+                                <!-- Nested Condition 1: Até R$ 500 -->
+                                <div class="nested-actions">
+                                    <div class="condition-block">
+                                        <div class="condition-header">
+                                            <div class="condition-icon">💰</div>
+                                            <div class="condition-title"></div>
+                                        </div>
+                                        <div class="condition-row">
+                                            <span class="condition-keyword">Se</span>
+                                            <span class="condition-value">Valor</span>
+                                            <span class="condition-field">é menor ou igual a</span>
+                                            <span class="condition-value">R$ 500</span>
+                                        </div>
+
+                                        <!-- Action: Auto-aprovar -->
+                                        <div class="nested-actions">
+                                            <div class="action-block">
+                                                <div class="action-content">
+                                                    <div class="action-icon approve">✓</div>
+                                                    <span class="action-keyword">Auto-aprovar com IA</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Nested Condition 2: R$ 500 - R$ 2.000 -->
+                                    <div class="condition-block">
+                                        <div class="condition-header">
+                                            <div class="condition-icon">⚙️</div>
+                                            <div class="condition-title"></div>
+                                        </div>
+                                        <div class="condition-row">
+                                            <span class="condition-keyword">Se</span>
+                                            <span class="condition-value">Valor</span>
+                                            <span class="condition-field">está entre</span>
+                                            <span class="condition-value">R$ 500</span>
+                                            <span class="condition-field">e</span>
+                                            <span class="condition-value">R$ 2.000</span>
+                                        </div>
+
+                                        <!-- Action: Gestor Direto -->
+                                        <div class="nested-actions">
+                                            <div class="action-block">
+                                                <div class="action-content">
+                                                    <div class="action-icon require">⚠️</div>
+                                                    <span class="action-keyword">Exigir aprovação de</span>
+                                                    <span class="action-approver">
+                                                        <span class="approver-avatar">G</span>
+                                                        <span>Gestor Direto</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Nested Condition 3: Acima de R$ 2.000 -->
+                                    <div class="condition-block">
+                                        <div class="condition-header">
+                                            <div class="condition-icon">🚨</div>
+                                            <div class="condition-title"></div>
+                                        </div>
+                                        <div class="condition-row">
+                                            <span class="condition-keyword">Se</span>
+                                            <span class="condition-value">Valor</span>
+                                            <span class="condition-field">é maior que</span>
+                                            <span class="condition-value">R$ 2.000</span>
+                                        </div>
+
+                                        <!-- Action: Diretor + CFO -->
+                                        <div class="nested-actions">
+                                            <div class="action-block">
+                                                <div class="action-content">
+                                                    <div class="action-icon require">⚠️</div>
+                                                    <span class="action-keyword">Exigir aprovação de</span>
+                                                    <span class="action-approver">
+                                                        <span class="approver-avatar">D</span>
+                                                        <span>Diretor</span>
+                                                    </span>
+                                                    <span class="condition-field">e</span>
+                                                    <span class="action-approver">
+                                                        <span class="approver-avatar">CF</span>
+                                                        <span>CFO</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="connector"></div>
+
+                            <!-- Final Action -->
+                            <div class="final-action">
+                                <div class="final-action-icon">✓</div>
+                                <div class="final-action-text">Aprovar Solicitação</div>
+                            </div>
+                        </div>
+
+                        <div class="policy-actions">
+                            <button class="btn btn-secondary" onclick="event.stopPropagation()">
+                                <span>✏️</span>
+                                <span>Editar Regras</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="event.stopPropagation()">
+                                <span>🔬</span>
+                                <span>Testar Regras</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Política 2: Despesas de Cartão -->
+                <div class="policy-card" style="--bg-start: #FEF3C7; --bg-end: #FDE68A;" onclick="togglePolicy(this)">
+                    <div class="policy-header">
+                        <div class="policy-header-top">
+                            <div class="policy-type">
+                                <div class="policy-icon">💳</div>
+                                <div>
+                                    <div class="policy-name">Política de Despesas de Cartão</div>
+                                </div>
+                            </div>
+                            <div class="policy-badge badge-new">Nova</div>
+                            <svg class="expand-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <p class="policy-description">Regras para transações com cartões corporativos</p>
+                    </div>
+                    <div class="policy-body">
+                        <div class="rules-preview">
+                            <div class="rules-title">
+                                <span>🔍</span>
+                                <span>6 regras identificadas</span>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--info-blue);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <div class="rule-text">IA preenche automaticamente: Centro de Custo, Projeto</div>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--success-green);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <div class="rule-text">SaaS e Software → Auto-aprovar até R$ 1.000</div>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--warning-yellow);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01" />
+                                </svg>
+                                <div class="rule-text">IA detecta duplicatas → Escalar para revisão</div>
+                            </div>
+                        </div>
+                        <div class="policy-actions">
+                            <button class="btn btn-secondary" onclick="event.stopPropagation()">
+                                <span>✏️</span>
+                                <span>Editar Regras</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="event.stopPropagation()">
+                                <span>👁️</span>
+                                <span>Ver Detalhes</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Política 3: Reembolsos -->
+                <div class="policy-card" style="--bg-start: #F3E8FF; --bg-end: #E9D5FF;" onclick="togglePolicy(this)">
+                    <div class="policy-header">
+                        <div class="policy-header-top">
+                            <div class="policy-type">
+                                <div class="policy-icon">📄</div>
+                                <div>
+                                    <div class="policy-name">Política de Reembolsos</div>
+                                </div>
+                            </div>
+                            <div class="policy-badge badge-new">Nova</div>
+                            <svg class="expand-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <p class="policy-description">Regras para solicitações de reembolso de despesas</p>
+                    </div>
+                    <div class="policy-body">
+                        <div class="rules-preview">
+                            <div class="rules-title">
+                                <span>🔍</span>
+                                <span>4 regras identificadas</span>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--danger-red);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <div class="rule-text">Sem nota fiscal → Rejeitar automaticamente</div>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--warning-yellow);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <div class="rule-text">IA valida: Qualidade do recibo, CNPJ, Valor, Data</div>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--success-green);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div class="rule-text">Transporte (Uber/99) até R$ 100 → Auto-aprovar</div>
+                            </div>
+                        </div>
+                        <div class="policy-actions">
+                            <button class="btn btn-secondary" onclick="event.stopPropagation()">
+                                <span>✏️</span>
+                                <span>Editar Regras</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="event.stopPropagation()">
+                                <span>👁️</span>
+                                <span>Ver Detalhes</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Política 4: Viagens -->
+                <div class="policy-card" style="--bg-start: #D1FAE5; --bg-end: #A7F3D0;" onclick="togglePolicy(this)">
+                    <div class="policy-header">
+                        <div class="policy-header-top">
+                            <div class="policy-type">
+                                <div class="policy-icon">✈️</div>
+                                <div>
+                                    <div class="policy-name">Política de Viagens</div>
+                                </div>
+                            </div>
+                            <div class="policy-badge badge-new">Nova</div>
+                            <svg class="expand-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                        <p class="policy-description">Regras para despesas relacionadas a viagens corporativas</p>
+                    </div>
+                    <div class="policy-body">
+                        <div class="rules-preview">
+                            <div class="rules-title">
+                                <span>🔍</span>
+                                <span>3 regras identificadas</span>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--success-green);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <div class="rule-text">Hospedagem até R$ 500/noite → Auto-aprovar</div>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--warning-yellow);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01" />
+                                </svg>
+                                <div class="rule-text">IA detecta álcool em nota → Escalar para gestor</div>
+                            </div>
+                            <div class="rule-item" style="--rule-color: var(--info-blue);">
+                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                                <div class="rule-text">Exigir: Justificativa de viagem + Centro de custo</div>
+                            </div>
+                        </div>
+                        <div class="policy-actions">
+                            <button class="btn btn-secondary" onclick="event.stopPropagation()">
+                                <span>✏️</span>
+                                <span>Editar Regras</span>
+                            </button>
+                            <button class="btn btn-primary" onclick="event.stopPropagation()">
+                                <span>👁️</span>
+                                <span>Ver Detalhes</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Nova Política -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalIfOutside(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-header-top">
+                    <h2 class="modal-title">✨ Criar Nova Política</h2>
+                    <button class="modal-close" onclick="closeModal()">✕</button>
+                </div>
+                <p class="modal-subtitle">Escolha como deseja criar sua política</p>
+            </div>
+
+            <div class="modal-body">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('upload', event)">📄 Upload de PDF</button>
+                    <button class="tab" onclick="switchTab('prompt', event)">💬 Descrever com IA</button>
+                    <button class="tab" onclick="switchTab('manual', event)">✏️ Criar Manualmente</button>
+                </div>
+
+                <!-- Tab Content: Upload -->
+                <div class="tab-content active" id="tab-upload">
+                    <!-- Upload State -->
+                    <div class="upload-container" id="uploadContainer">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📄</div>
+                            <h3 class="upload-title">Envie o manual de políticas da sua empresa</h3>
+                            <p class="upload-subtitle">Nossa IA irá ler e criar regras automaticamente</p>
+                            
+                            <input type="file" id="fileInput" accept=".pdf,.doc,.docx" onchange="handleFileSelect(event)">
+                            <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                                <span>📎</span>
+                                <span>Selecionar Arquivo</span>
+                            </button>
+                            
+                            <p class="upload-info">
+                                ou arraste e solte aqui<br>
+                                PDF, DOC, DOCX (máx. 10MB)
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Processing State -->
+                    <div class="processing-container" id="processingContainer">
+                        <div class="processing-header">
+                            <div class="processing-icon">✨</div>
+                            <h3 class="processing-title">Processando documento...</h3>
+                            <p class="processing-subtitle">A IA está analisando suas políticas</p>
+                        </div>
+
+                        <div class="processing-steps">
+                            <div class="processing-step completed" id="proc-step-1">
+                                <div class="processing-step-icon">✓</div>
+                                <div class="processing-step-text">Leitura do PDF</div>
+                                <div class="processing-step-status">Concluído</div>
+                            </div>
+                            <div class="processing-step active" id="proc-step-2">
+                                <div class="processing-step-icon">🤖</div>
+                                <div class="processing-step-text">Análise semântica</div>
+                                <div class="processing-step-status">Processando...</div>
+                            </div>
+                            <div class="processing-step" id="proc-step-3">
+                                <div class="processing-step-icon">🏗️</div>
+                                <div class="processing-step-text">Estruturação de regras</div>
+                                <div class="processing-step-status">Aguardando</div>
+                            </div>
+                            <div class="processing-step" id="proc-step-4">
+                                <div class="processing-step-icon">🔍</div>
+                                <div class="processing-step-text">Identificação de aprovadores</div>
+                                <div class="processing-step-status">Aguardando</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success State -->
+                    <div class="success-container" id="successContainer">
+                        <div class="success-icon">✅</div>
+                        <h3 class="success-title">4 Políticas Geradas com Sucesso!</h3>
+                        <p class="success-subtitle">Suas políticas foram criadas e estão prontas para uso</p>
+
+                        <div class="success-stats">
+                            <div class="success-stat">
+                                <div class="success-stat-value">4</div>
+                                <div class="success-stat-label">Políticas criadas</div>
+                            </div>
+                            <div class="success-stat">
+                                <div class="success-stat-value">18</div>
+                                <div class="success-stat-label">Regras identificadas</div>
+                            </div>
+                        </div>
+
+                        <div class="success-actions">
+                            <button class="btn btn-secondary" onclick="closeModal()">Ver Depois</button>
+                            <button class="btn btn-primary" onclick="goToPolicies()">
+                                <span>👁️</span>
+                                <span>Ver Políticas</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Prompt -->
+                <div class="tab-content" id="tab-prompt">
+                    <p style="color: var(--gray-600); margin-bottom: var(--spacing-md);">
+                        Em breve: Descreva suas regras em linguagem natural e deixe a IA criar automaticamente.
+                    </p>
+                </div>
+
+                <!-- Tab Content: Manual -->
+                <div class="tab-content" id="tab-manual">
+                    <p style="color: var(--gray-600); margin-bottom: var(--spacing-lg);">
+                        Você será redirecionado para o configurador visual de regras.
+                    </p>
+                    <button class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <span>✏️</span>
+                        <span>Abrir Configurador</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openNewPolicyModal() {
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            resetUploadState();
+        }
+
+        function closeModalIfOutside(event) {
+            if (event.target === document.getElementById('modalOverlay')) {
+                closeModal();
+            }
+        }
+
+        // Tab Switching
+        function switchTab(tabName, event) {
+            event.stopPropagation();
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        // Policy Toggle
+        function togglePolicy(card) {
+            card.classList.toggle('expanded');
+        }
+
+        // Drag and Drop
+        const uploadArea = document.getElementById('uploadArea');
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // File Selection
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        function handleFile(file) {
+            if (file.size > 10 * 1024 * 1024) {
+                alert('❌ Arquivo muito grande! Máximo: 10MB');
+                return;
+            }
+
+            if (!file.name.match(/\.(pdf|doc|docx)$/i)) {
+                alert('❌ Formato inválido! Apenas PDF, DOC ou DOCX');
+                return;
+            }
+
+            startProcessing();
+        }
+
+        // Processing Simulation
+        function startProcessing() {
+            document.getElementById('uploadContainer').style.display = 'none';
+            document.getElementById('processingContainer').classList.add('active');
+
+            setTimeout(() => {
+                document.getElementById('proc-step-2').classList.add('completed');
+                document.getElementById('proc-step-2').classList.remove('active');
+                document.getElementById('proc-step-2').querySelector('.processing-step-status').textContent = 'Concluído';
+                
+                document.getElementById('proc-step-3').classList.add('active');
+                document.getElementById('proc-step-3').querySelector('.processing-step-status').textContent = 'Processando...';
+            }, 2000);
+
+            setTimeout(() => {
+                document.getElementById('proc-step-3').classList.add('completed');
+                document.getElementById('proc-step-3').classList.remove('active');
+                document.getElementById('proc-step-3').querySelector('.processing-step-status').textContent = 'Concluído';
+                
+                document.getElementById('proc-step-4').classList.add('active');
+                document.getElementById('proc-step-4').querySelector('.processing-step-status').textContent = 'Processando...';
+            }, 4000);
+
+            setTimeout(() => {
+                document.getElementById('proc-step-4').classList.add('completed');
+                document.getElementById('proc-step-4').classList.remove('active');
+                document.getElementById('proc-step-4').querySelector('.processing-step-status').textContent = 'Concluído';
+                
+                showSuccess();
+            }, 6000);
+        }
+
+        function showSuccess() {
+            document.getElementById('processingContainer').classList.remove('active');
+            document.getElementById('successContainer').classList.add('active');
+        }
+
+        function resetUploadState() {
+            document.getElementById('uploadContainer').style.display = 'block';
+            document.getElementById('processingContainer').classList.remove('active');
+            document.getElementById('successContainer').classList.remove('active');
+            
+            // Reset processing steps
+            document.getElementById('proc-step-2').classList.remove('completed', 'active');
+            document.getElementById('proc-step-3').classList.remove('completed', 'active');
+            document.getElementById('proc-step-4').classList.remove('completed', 'active');
+            document.getElementById('proc-step-2').classList.add('active');
+            document.getElementById('proc-step-2').querySelector('.processing-step-status').textContent = 'Processando...';
+            document.getElementById('proc-step-3').querySelector('.processing-step-status').textContent = 'Aguardando';
+            document.getElementById('proc-step-4').querySelector('.processing-step-status').textContent = 'Aguardando';
+        }
+
+        function goToPolicies() {
+            closeModal();
+            // Scroll para a seção de políticas
+            document.getElementById('policiesSection').scrollIntoView({ behavior: 'smooth' });
+            
+            // Toast de sucesso
+            setTimeout(() => {
+                alert('✅ 4 novas políticas foram adicionadas com sucesso!\n\n📋 Solicitações\n💳 Despesas de Cartão\n📄 Reembolsos\n✈️ Viagens');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
