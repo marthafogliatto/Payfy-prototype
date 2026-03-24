@@ -978,6 +978,273 @@
         .policy-card:nth-child(2) { animation-delay: 0.2s; }
         .policy-card:nth-child(3) { animation-delay: 0.3s; }
         .policy-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Agent Status Bar */
+        .agent-status-bar {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        .agent-status-left {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+        .agent-status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--success-green);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .agent-status-label {
+            font-weight: 700;
+            color: #1E40AF;
+            font-size: 14px;
+        }
+        .agent-status-info {
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+        .agent-status-right {
+            position: relative;
+        }
+        .btn-configure {
+            background: #1E40AF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-configure:hover {
+            background: #1E3A8A;
+        }
+        .agent-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            min-width: 280px;
+            z-index: 100;
+            overflow: hidden;
+        }
+        .agent-dropdown.show {
+            display: block;
+        }
+        .agent-dropdown-item {
+            padding: 10px 16px;
+            font-size: 13px;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .agent-dropdown-item:hover {
+            background: var(--gray-50);
+        }
+        .agent-dropdown-item.active {
+            background: #EFF6FF;
+            color: #1E40AF;
+            font-weight: 600;
+        }
+        .agent-status-bar.mode-off {
+            background: var(--gray-100);
+            border-color: var(--gray-300);
+        }
+        .agent-status-bar.mode-off .agent-status-dot {
+            background: var(--gray-400);
+        }
+        .agent-status-bar.mode-off .agent-status-label {
+            color: var(--gray-600);
+        }
+        .agent-status-bar.mode-test {
+            background: #FEF3C7;
+            border-color: #FDE68A;
+        }
+        .agent-status-bar.mode-test .agent-status-dot {
+            background: var(--warning-yellow);
+        }
+        .agent-status-bar.mode-test .agent-status-label {
+            color: #92400E;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: #F1F5F9;
+            border-radius: 8px;
+            padding: 4px;
+            display: flex;
+            gap: 4px;
+            margin-bottom: var(--spacing-lg);
+        }
+        .nav-tab {
+            padding: 8px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .nav-tab:hover {
+            color: var(--gray-700);
+        }
+        .nav-tab.active {
+            background: white;
+            color: var(--gray-900);
+            box-shadow: var(--shadow-sm);
+        }
+        /* Tab Placeholders */
+        .tab-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .placeholder-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-lg);
+        }
+        .placeholder-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-sm);
+        }
+        .placeholder-desc {
+            font-size: 14px;
+            color: var(--gray-500);
+            max-width: 480px;
+        }
+
+            
+        /* Rule Groups */
+        .rules-categorized { margin-bottom: var(--spacing-lg); }
+        .rules-categorized.collapsed .category-content { display: none; }
+        .category-toggle { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--gray-100); border-radius:8px; cursor:pointer; font-size:13px; font-weight:600; color:var(--gray-700); margin-bottom:var(--spacing-sm); }
+        .rules-categorized.collapsed .category-toggle svg { transform: rotate(-90deg); }
+        .category-content { display:flex; flex-direction:column; gap:var(--spacing-md); }
+        .rule-group { border-radius:8px; padding:14px; border:1px solid; }
+        .rule-group-agent { background:#F0FDF4; border-color:#BBF7D0; }
+        .rule-group-flag { background:#FEF2F2; border-color:#FECACA; }
+        .rule-group-confidential { background:#FEF3C7; border-color:#FDE68A; }
+        .rule-group-header { margin-bottom:10px; }
+        .rule-group-badge { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; padding:3px 10px; border-radius:12px; }
+        .badge-agent { background:#D1FAE5; color:#065F46; }
+        .badge-flag { background:#FEE2E2; color:#991B1B; }
+        .badge-confidential { background:#FDE68A; color:#92400E; }
+        .rule-group-item { font-size:13px; color:var(--gray-700); padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.05); }
+        .rule-group-item:last-of-type { border-bottom:none; }
+        .flag-note { font-size:11px; color:var(--gray-500); margin-top:8px; font-style:italic; }
+        .confidential-access { font-size:12px; color:var(--gray-600); margin-top:8px; position:relative; }
+        .access-roles { text-decoration:underline dotted; cursor:pointer; color:#92400E; font-weight:600; }
+        .role-dropdown { display:none; position:absolute; top:100%; left:0; background:white; border:1px solid var(--border); border-radius:8px; padding:8px; box-shadow:var(--shadow-lg); z-index:50; min-width:160px; }
+        .role-dropdown.show { display:block; }
+        .role-dropdown label { display:flex; align-items:center; gap:8px; padding:6px 8px; font-size:13px; color:var(--gray-700); cursor:pointer; border-radius:4px; }
+        .role-dropdown label:hover { background:var(--gray-50); }
+        .confidential-tooltip { font-size:11px; color:var(--gray-500); margin-top:6px; font-style:italic; }
+        /* Flags Override */
+        .flags-override-section { background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:16px; margin-bottom:var(--spacing-lg); }
+        .flags-override-header { font-weight:700; color:#DC2626; font-size:14px; margin-bottom:12px; }
+        .flags-override-item { font-size:13px; color:var(--gray-700); padding:8px 0; border-bottom:1px solid rgba(220,38,38,0.1); }
+        .flags-override-item:last-child { border-bottom:none; }
+        .flags-override-note { font-size:11px; color:var(--gray-500); margin-top:10px; font-style:italic; }
+        /* Hierarchy */
+        .default-badge { display:inline-block; background:#D1FAE5; color:#065F46; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; cursor:help; }
+        .agent-precondition { font-size:12px; color:var(--gray-500); padding-left:48px; margin-bottom:4px; font-style:italic; }
+
+        /* Suggestions Panel */
+        .suggestions-panel {
+            background: #FFFBEB;
+            border: 1.5px solid #FDE68A;
+            border-radius: 12px;
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        .suggestions-header { margin-bottom: var(--spacing-lg); }
+        .suggestions-title { font-size: 16px; font-weight: 700; color: var(--gray-900); }
+        .suggestions-subtitle { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+        .suggestions-list { display: flex; flex-direction: column; gap: var(--spacing-md); }
+        .suggestion-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            transition: opacity 0.4s, transform 0.4s;
+        }
+        .suggestion-card.fade-out {
+            opacity: 0;
+            transform: translateX(20px);
+            pointer-events: none;
+        }
+        .suggestion-content { display: flex; align-items: flex-start; gap: 10px; flex: 1; }
+        .suggestion-icon { font-size: 18px; flex-shrink: 0; }
+        .suggestion-text { font-size: 13px; color: var(--gray-700); line-height: 1.5; }
+        .suggestion-actions { display: flex; gap: 8px; flex-shrink: 0; }
+        .btn-apply {
+            background: #1E40AF;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-apply:hover { background: #1E3A8A; }
+        .btn-ignore {
+            background: transparent;
+            color: var(--gray-500);
+            border: 1px solid var(--gray-300);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-ignore:hover { background: var(--gray-50); color: var(--gray-700); }
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #065F46;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: var(--shadow-xl);
+            z-index: 2000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+
     </style>
 </head>
 <body>
@@ -1000,7 +1267,50 @@
         <div>
             <h1 class="page-title">Políticas de Gastos</h1>
             <p class="page-subtitle">Gerencie suas políticas de aprovação e configurações</p>
+        
+        <!-- Agent Status Bar -->
+        <div class="agent-status-bar" id="agentStatusBar">
+            <div class="agent-status-left">
+                <span class="agent-status-dot"></span>
+                <span class="agent-status-label">Policy Agent ativo</span>
+                <span class="agent-status-info">Modo: Aprovação automática para &lt; R$ 2.000 · 99.1% acurácia (90 dias) · 847 transações avaliadas</span>
+            </div>
+            <div class="agent-status-right">
+                <button class="btn-configure" onclick="toggleAgentDropdown(event)">Configurar</button>
+                <div class="agent-dropdown" id="agentDropdown">
+                    <div class="agent-dropdown-item" onclick="setAgentMode('off', event)">Desativar Agent</div>
+                    <div class="agent-dropdown-item" onclick="setAgentMode('test', event)">Modo teste (admins only)</div>
+                    <div class="agent-dropdown-item" onclick="setAgentMode('recommend', event)">Modo recomendação (sugere mas não aprova)</div>
+                    <div class="agent-dropdown-item active" onclick="setAgentMode('auto', event)">Modo aprovação automática</div>
+                </div>
+            </div>
         </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs" id="navTabs">
+            <button class="nav-tab active" onclick="switchMainTab('regras', event)">Regras</button>
+            <button class="nav-tab" onclick="switchMainTab('documento', event)">Documento</button>
+            <button class="nav-tab" onclick="switchMainTab('compliance', event)">Compliance</button>
+            <button class="nav-tab" onclick="switchMainTab('historico', event)">Histórico</button>
+        </div>
+
+        <!-- Tab placeholders -->
+        <div class="tab-placeholder" id="placeholder-documento" style="display:none;">
+            <div class="placeholder-icon">📄</div>
+            <div class="placeholder-title">Documento de Política</div>
+            <div class="placeholder-desc">Documento de política gerado automaticamente a partir das suas regras. Editável a qualquer momento. Em breve.</div>
+        </div>
+        <div class="tab-placeholder" id="placeholder-compliance" style="display:none;">
+            <div class="placeholder-icon">📊</div>
+            <div class="placeholder-title">Dashboard de Compliance</div>
+            <div class="placeholder-desc">Dashboard de compliance com métricas de acurácia do Agent, análise por departamento, e categorias de risco. Em breve.</div>
+        </div>
+        <div class="tab-placeholder" id="placeholder-historico" style="display:none;">
+            <div class="placeholder-icon">🕐</div>
+            <div class="placeholder-title">Histórico de Versões</div>
+            <div class="placeholder-desc">Histórico de versões da política com diff visual entre versões. Em breve.</div>
+        </div>
+</div>
 
         <!-- Políticas Grid -->
         <div class="policies-section" id="policiesSection">
@@ -1027,6 +1337,42 @@
                         <p class="policy-description">Regras para aprovação de solicitações de compra de cartões corporativos</p>
                     </div>
                     <div class="policy-body">
+                        <!-- Regras Categorizadas - Colapsável -->
+                        <div class="rules-categorized collapsed" onclick="event.stopPropagation()">
+                            <div class="category-toggle" onclick="toggleCategory(this.parentElement)">
+                                <span>📑 Regras categorizadas (3 grupos)</span>
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition: transform 0.3s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </div>
+                            <div class="category-content">
+                                <div class="rule-group rule-group-agent">
+                                    <div class="rule-group-header"><span class="rule-group-badge badge-agent">REGRA · Agent interpreta</span></div>
+                                    <div class="rule-group-item">⚡ IA preenche: Centro de Custo, Projeto</div>
+                                    <div class="rule-group-item">🤖 Agent avalia compliance antes de aprovar</div>
+                                </div>
+                                <div class="rule-group rule-group-flag">
+                                    <div class="rule-group-header"><span class="rule-group-badge badge-flag">FLAG · Override automático</span></div>
+                                    <div class="rule-group-item">🚩 Valor divergente entre solicitação e histórico → Escalar</div>
+                                    <div class="rule-group-item">🚩 Solicitação duplicada → Bloquear</div>
+                                    <p class="flag-note">Flags sobrescrevem o Agent. Se ativadas, forçam revisão humana.</p>
+                                </div>
+                                <div class="rule-group rule-group-confidential">
+                                    <div class="rule-group-header"><span class="rule-group-badge badge-confidential">🔒 CONFIDENCIAL · Só admins</span></div>
+                                    <div class="rule-group-item">🔒 Diretoria: limite de auto-aprovação R$ 10.000 (não R$ 2.000)</div>
+                                    <div class="confidential-access" onclick="event.stopPropagation()">
+                                        Visível para: <span class="access-roles" onclick="toggleRoleDropdown(this, event)">Admins, CFO</span>
+                                        <div class="role-dropdown">
+                                            <label><input type="checkbox" checked> Admin</label>
+                                            <label><input type="checkbox" checked> CFO</label>
+                                            <label><input type="checkbox"> Diretor</label>
+                                            <label><input type="checkbox"> Gestor</label>
+                                            <label><input type="checkbox"> RH</label>
+                                        </div>
+                                    </div>
+                                    <div class="confidential-tooltip">Regras confidenciais são aplicadas pelo Agent mas não aparecem na versão da política visível para o colaborador</div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="rule-builder">
                             <!-- Trigger Block -->
                             <div class="trigger-block">
@@ -1047,7 +1393,7 @@
                             <div class="condition-block">
                                 <div class="condition-header">
                                     <div class="condition-icon">🤖</div>
-                                    <div class="condition-title">Agente de Política IA</div>
+                                    <div class="condition-title">Agente de Política IA <span class="default-badge" title="O Agent avalia todas as transações por padrão. Flags e condições de valor complementam a decisão.">DEFAULT</span></div>
                                 </div>
                                 <div class="condition-row">
                                     <span class="action-agent">
@@ -1069,6 +1415,7 @@
                                             <div class="condition-title"></div>
                                         </div>
                                         <div class="condition-row">
+                            <div class="agent-precondition">Se o Agent aprova e...</div>
                                             <span class="condition-keyword">Se</span>
                                             <span class="condition-value">Valor</span>
                                             <span class="condition-field">é menor ou igual a</span>
@@ -1093,6 +1440,7 @@
                                             <div class="condition-title"></div>
                                         </div>
                                         <div class="condition-row">
+                            <div class="agent-precondition">Se o Agent aprova e...</div>
                                             <span class="condition-keyword">Se</span>
                                             <span class="condition-value">Valor</span>
                                             <span class="condition-field">está entre</span>
@@ -1123,6 +1471,7 @@
                                             <div class="condition-title"></div>
                                         </div>
                                         <div class="condition-row">
+                            <div class="agent-precondition">Se o Agent aprova e...</div>
                                             <span class="condition-keyword">Se</span>
                                             <span class="condition-value">Valor</span>
                                             <span class="condition-field">é maior que</span>
@@ -1160,6 +1509,17 @@
                             </div>
                         </div>
 
+                        <!-- Flags de Override Ativas -->
+                        <div class="flags-override-section" onclick="event.stopPropagation()">
+                            <div class="flags-override-header">🚩 Flags de Override Ativas</div>
+                            <div class="flags-override-list">
+                                <div class="flags-override-item">Recibo duplicado detectado → Bloqueia auto-aprovação, escala para admin</div>
+                                <div class="flags-override-item">Valor divergente entre recibo e transação → Escala para revisão</div>
+                                <div class="flags-override-item">NF-e com CNPJ inativo na Receita Federal → Rejeita automaticamente</div>
+                            </div>
+                            <p class="flags-override-note">Flags são avaliadas em paralelo ao Agent. Se qualquer flag é ativada, ela sobrescreve a decisão do Agent e força revisão humana.</p>
+                        </div>
+
                         <div class="policy-actions">
                             <button class="btn btn-secondary" onclick="event.stopPropagation()">
                                 <span>✏️</span>
@@ -1191,28 +1551,33 @@
                         <p class="policy-description">Regras para transações com cartões corporativos</p>
                     </div>
                     <div class="policy-body">
-                        <div class="rules-preview">
-                            <div class="rules-title">
-                                <span>🔍</span>
-                                <span>6 regras identificadas</span>
+                        <div class="rules-categorized" onclick="event.stopPropagation()">
+                            <div class="rule-group rule-group-agent">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-agent">REGRA · Agent interpreta</span></div>
+                                <div class="rule-group-item">⚡ IA preenche: Centro de Custo, Projeto</div>
+                                <div class="rule-group-item">✅ SaaS e Software → Auto-aprovar até R$ 1.000</div>
                             </div>
-                            <div class="rule-item" style="--rule-color: var(--info-blue);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                                <div class="rule-text">IA preenche automaticamente: Centro de Custo, Projeto</div>
+                            <div class="rule-group rule-group-flag">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-flag">FLAG · Override automático</span></div>
+                                <div class="rule-group-item">🚩 Recibo duplicado → Escalar</div>
+                                <div class="rule-group-item">🚩 NF-e inválida → Rejeitar</div>
+                                <div class="rule-group-item">🚩 Gasto pessoal detectado → Alertar</div>
+                                <p class="flag-note">Flags sobrescrevem o Agent. Se ativadas, forçam revisão humana.</p>
                             </div>
-                            <div class="rule-item" style="--rule-color: var(--success-green);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div class="rule-text">SaaS e Software → Auto-aprovar até R$ 1.000</div>
-                            </div>
-                            <div class="rule-item" style="--rule-color: var(--warning-yellow);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01" />
-                                </svg>
-                                <div class="rule-text">IA detecta duplicatas → Escalar para revisão</div>
+                            <div class="rule-group rule-group-confidential">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-confidential">🔒 CONFIDENCIAL · Só admins</span></div>
+                                <div class="rule-group-item">🔒 C-level: limite de auto-aprovação R$ 5.000</div>
+                                <div class="confidential-access" onclick="event.stopPropagation()">
+                                    Visível para: <span class="access-roles" onclick="toggleRoleDropdown(this, event)">Admins, CFO</span>
+                                    <div class="role-dropdown">
+                                        <label><input type="checkbox" checked> Admin</label>
+                                        <label><input type="checkbox" checked> CFO</label>
+                                        <label><input type="checkbox"> Diretor</label>
+                                        <label><input type="checkbox"> Gestor</label>
+                                        <label><input type="checkbox"> RH</label>
+                                    </div>
+                                </div>
+                                <div class="confidential-tooltip">Regras confidenciais são aplicadas pelo Agent mas não aparecem na versão da política visível para o colaborador</div>
                             </div>
                         </div>
                         <div class="policy-actions">
@@ -1246,28 +1611,33 @@
                         <p class="policy-description">Regras para solicitações de reembolso de despesas</p>
                     </div>
                     <div class="policy-body">
-                        <div class="rules-preview">
-                            <div class="rules-title">
-                                <span>🔍</span>
-                                <span>4 regras identificadas</span>
+                        <div class="rules-categorized" onclick="event.stopPropagation()">
+                            <div class="rule-group rule-group-agent">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-agent">REGRA · Agent interpreta</span></div>
+                                <div class="rule-group-item">✅ Transporte (Uber/99) até R$ 100 → Auto-aprovar</div>
+                                <div class="rule-group-item">🤖 IA valida: qualidade do recibo, CNPJ, valor, data</div>
                             </div>
-                            <div class="rule-item" style="--rule-color: var(--danger-red);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <div class="rule-text">Sem nota fiscal → Rejeitar automaticamente</div>
+                            <div class="rule-group rule-group-flag">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-flag">FLAG · Override automático</span></div>
+                                <div class="rule-group-item">🚩 Sem nota fiscal → Rejeitar automaticamente</div>
+                                <div class="rule-group-item">🚩 CNPJ inativo → Bloquear</div>
+                                <div class="rule-group-item">🚩 VR/VA no mesmo dia → Alertar gestor</div>
+                                <p class="flag-note">Flags sobrescrevem o Agent. Se ativadas, forçam revisão humana.</p>
                             </div>
-                            <div class="rule-item" style="--rule-color: var(--warning-yellow);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                                <div class="rule-text">IA valida: Qualidade do recibo, CNPJ, Valor, Data</div>
-                            </div>
-                            <div class="rule-item" style="--rule-color: var(--success-green);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <div class="rule-text">Transporte (Uber/99) até R$ 100 → Auto-aprovar</div>
+                            <div class="rule-group rule-group-confidential">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-confidential">🔒 CONFIDENCIAL · Só admins</span></div>
+                                <div class="rule-group-item">🔒 Reembolso mobile só para times Comercial e CS</div>
+                                <div class="confidential-access" onclick="event.stopPropagation()">
+                                    Visível para: <span class="access-roles" onclick="toggleRoleDropdown(this, event)">Admins, CFO</span>
+                                    <div class="role-dropdown">
+                                        <label><input type="checkbox" checked> Admin</label>
+                                        <label><input type="checkbox" checked> CFO</label>
+                                        <label><input type="checkbox"> Diretor</label>
+                                        <label><input type="checkbox"> Gestor</label>
+                                        <label><input type="checkbox"> RH</label>
+                                    </div>
+                                </div>
+                                <div class="confidential-tooltip">Regras confidenciais são aplicadas pelo Agent mas não aparecem na versão da política visível para o colaborador</div>
                             </div>
                         </div>
                         <div class="policy-actions">
@@ -1301,28 +1671,32 @@
                         <p class="policy-description">Regras para despesas relacionadas a viagens corporativas</p>
                     </div>
                     <div class="policy-body">
-                        <div class="rules-preview">
-                            <div class="rules-title">
-                                <span>🔍</span>
-                                <span>3 regras identificadas</span>
+                        <div class="rules-categorized" onclick="event.stopPropagation()">
+                            <div class="rule-group rule-group-agent">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-agent">REGRA · Agent interpreta</span></div>
+                                <div class="rule-group-item">✅ Hospedagem até R$ 500/noite → Auto-aprovar</div>
+                                <div class="rule-group-item">✈️ Voos com 14+ dias antecedência</div>
                             </div>
-                            <div class="rule-item" style="--rule-color: var(--success-green);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                                <div class="rule-text">Hospedagem até R$ 500/noite → Auto-aprovar</div>
+                            <div class="rule-group rule-group-flag">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-flag">FLAG · Override automático</span></div>
+                                <div class="rule-group-item">🚩 IA detecta álcool em nota → Escalar para gestor</div>
+                                <div class="rule-group-item">🚩 Reserva &lt; 7 dias → Requer justificativa</div>
+                                <p class="flag-note">Flags sobrescrevem o Agent. Se ativadas, forçam revisão humana.</p>
                             </div>
-                            <div class="rule-item" style="--rule-color: var(--warning-yellow);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01" />
-                                </svg>
-                                <div class="rule-text">IA detecta álcool em nota → Escalar para gestor</div>
-                            </div>
-                            <div class="rule-item" style="--rule-color: var(--info-blue);">
-                                <svg class="rule-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                </svg>
-                                <div class="rule-text">Exigir: Justificativa de viagem + Centro de custo</div>
+                            <div class="rule-group rule-group-confidential">
+                                <div class="rule-group-header"><span class="rule-group-badge badge-confidential">🔒 CONFIDENCIAL · Só admins</span></div>
+                                <div class="rule-group-item">🔒 Diretoria: Business class em voos &gt; 4h, custo absorvido pelo budget executivo</div>
+                                <div class="confidential-access" onclick="event.stopPropagation()">
+                                    Visível para: <span class="access-roles" onclick="toggleRoleDropdown(this, event)">Admins, CFO</span>
+                                    <div class="role-dropdown">
+                                        <label><input type="checkbox" checked> Admin</label>
+                                        <label><input type="checkbox" checked> CFO</label>
+                                        <label><input type="checkbox"> Diretor</label>
+                                        <label><input type="checkbox"> Gestor</label>
+                                        <label><input type="checkbox"> RH</label>
+                                    </div>
+                                </div>
+                                <div class="confidential-tooltip">Regras confidenciais são aplicadas pelo Agent mas não aparecem na versão da política visível para o colaborador</div>
                             </div>
                         </div>
                         <div class="policy-actions">
@@ -1335,6 +1709,48 @@
                                 <span>Ver Detalhes</span>
                             </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sugestões do Agent -->
+        <div class="suggestions-panel" id="suggestionsPanel">
+            <div class="suggestions-header">
+                <div>
+                    <div class="suggestions-title">🧠 Sugestões do Agent</div>
+                    <div class="suggestions-subtitle">Baseado em padrões dos últimos 30 dias</div>
+                </div>
+            </div>
+            <div class="suggestions-list">
+                <div class="suggestion-card" id="suggestion-1">
+                    <div class="suggestion-content">
+                        <span class="suggestion-icon">💡</span>
+                        <span class="suggestion-text">15 corridas de rideshare para off-sites foram aprovadas como exceção nos últimos 30 dias → Sugestão: adicionar regra "rideshare sem cap para eventos corporativos" à Política de Viagens</span>
+                    </div>
+                    <div class="suggestion-actions">
+                        <button class="btn-apply" onclick="applySuggestion('suggestion-1', 'Viagens', event)">Aplicar</button>
+                        <button class="btn-ignore" onclick="ignoreSuggestion('suggestion-1', event)">Ignorar</button>
+                    </div>
+                </div>
+                <div class="suggestion-card" id="suggestion-2">
+                    <div class="suggestion-content">
+                        <span class="suggestion-icon">💡</span>
+                        <span class="suggestion-text">Per diem jantar excedido 23x este mês (média R$ 82 vs limite R$ 70) → Sugestão: atualizar per diem jantar para R$ 85 na Política de Reembolsos</span>
+                    </div>
+                    <div class="suggestion-actions">
+                        <button class="btn-apply" onclick="applySuggestion('suggestion-2', 'Reembolsos', event)">Aplicar</button>
+                        <button class="btn-ignore" onclick="ignoreSuggestion('suggestion-2', event)">Ignorar</button>
+                    </div>
+                </div>
+                <div class="suggestion-card" id="suggestion-3">
+                    <div class="suggestion-content">
+                        <span class="suggestion-icon">💡</span>
+                        <span class="suggestion-text">12 transações de Uber nos fins de semana aprovadas com exceção → Sugestão: criar regra "transporte fim de semana permitido com justificativa" na Política de Despesas de Cartão</span>
+                    </div>
+                    <div class="suggestion-actions">
+                        <button class="btn-apply" onclick="applySuggestion('suggestion-3', 'Despesas de Cartão', event)">Aplicar</button>
+                        <button class="btn-ignore" onclick="ignoreSuggestion('suggestion-3', event)">Ignorar</button>
                     </div>
                 </div>
             </div>
@@ -1357,7 +1773,8 @@
                 <div class="tabs">
                     <button class="tab active" onclick="switchTab('upload', event)">📄 Upload de PDF</button>
                     <button class="tab" onclick="switchTab('prompt', event)">💬 Descrever com IA</button>
-                    <button class="tab" onclick="switchTab('manual', event)">✏️ Criar Manualmente</button>
+                                        <button class="tab" onclick="switchTab('template', event)">📋 Template Payfy</button>
+<button class="tab" onclick="switchTab('manual', event)">✏️ Criar Manualmente</button>
                 </div>
 
                 <!-- Tab Content: Upload -->
@@ -1449,7 +1866,26 @@
                 </div>
 
                 <!-- Tab Content: Manual -->
-                <div class="tab-content" id="tab-manual">
+                                <div class="tab-content" id="tab-template">
+                    <div style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 32px; text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">📋</div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">Template Payfy — Melhores Práticas Brasil</h3>
+                        <p style="font-size: 14px; color: #4B5563; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto;">Construído a partir das melhores práticas do mercado brasileiro. Inclui regras para NF-e, VR/VA, CLT, e mais. Ajuste a qualquer momento.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px;">
+                            <span style="background: #D1FAE5; color: #065F46; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">NF-e</span>
+                            <span style="background: #FEF3C7; color: #92400E; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">VR/VA</span>
+                            <span style="background: #DBEAFE; color: #1E40AF; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">CLT</span>
+                            <span style="background: #EDE9FE; color: #5B21B6; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Per diem</span>
+                            <span style="background: #FEE2E2; color: #991B1B; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">CNPJ</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; max-width: 320px; justify-content: center;" onclick="event.stopPropagation()">
+                            <span>✨</span>
+                            <span>Usar Template Payfy</span>
+                        </button>
+                    </div>
+                </div>
+
+<div class="tab-content" id="tab-manual">
                     <p style="color: var(--gray-600); margin-bottom: var(--spacing-lg);">
                         Você será redirecionado para o configurador visual de regras.
                     </p>
@@ -1600,6 +2036,116 @@
                 alert('✅ 4 novas políticas foram adicionadas com sucesso!\n\n📋 Solicitações\n💳 Despesas de Cartão\n📄 Reembolsos\n✈️ Viagens');
             }, 500);
         }
+
+        function toggleAgentDropdown(event) {
+            event.stopPropagation();
+            document.getElementById('agentDropdown').classList.toggle('show');
+        }
+
+        function setAgentMode(mode, event) {
+            event.stopPropagation();
+            const bar = document.getElementById('agentStatusBar');
+            const label = bar.querySelector('.agent-status-label');
+            const info = bar.querySelector('.agent-status-info');
+            const items = document.querySelectorAll('.agent-dropdown-item');
+            
+            bar.className = 'agent-status-bar';
+            items.forEach(i => i.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            switch(mode) {
+                case 'off':
+                    bar.classList.add('mode-off');
+                    label.textContent = 'Policy Agent desativado';
+                    info.textContent = 'O Agent não está avaliando transações';
+                    break;
+                case 'test':
+                    bar.classList.add('mode-test');
+                    label.textContent = 'Policy Agent em teste';
+                    info.textContent = 'Modo: Teste (admins only) · Decisões visíveis apenas para admins';
+                    break;
+                case 'recommend':
+                    label.textContent = 'Policy Agent ativo';
+                    info.textContent = 'Modo: Recomendação · Sugere mas não aprova automaticamente · 99.1% acurácia';
+                    break;
+                case 'auto':
+                    label.textContent = 'Policy Agent ativo';
+                    info.textContent = 'Modo: Aprovação automática para < R$ 2.000 · 99.1% acurácia (90 dias) · 847 transações avaliadas';
+                    break;
+            }
+            document.getElementById('agentDropdown').classList.remove('show');
+        }
+
+        function switchMainTab(tab, event) {
+            event.stopPropagation();
+            // Update tab buttons
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Hide all content
+            document.getElementById('policiesSection').style.display = 'none';
+            const suggestionsPanel = document.getElementById('suggestionsPanel');
+            if (suggestionsPanel) suggestionsPanel.style.display = 'none';
+            document.querySelectorAll('.tab-placeholder').forEach(p => p.style.display = 'none');
+            
+            // Show selected content
+            if (tab === 'regras') {
+                document.getElementById('policiesSection').style.display = 'block';
+                if (suggestionsPanel) suggestionsPanel.style.display = 'block';
+            } else {
+                document.getElementById('placeholder-' + tab).style.display = 'flex';
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            document.getElementById('agentDropdown').classList.remove('show');
+        });
+
+            
+        function toggleCategory(element) { element.classList.toggle('collapsed'); }
+        function toggleRoleDropdown(element, event) {
+            event.stopPropagation();
+            var dropdown = element.nextElementSibling;
+            document.querySelectorAll('.role-dropdown.show').forEach(function(d) { if (d !== dropdown) d.classList.remove('show'); });
+            dropdown.classList.toggle('show');
+        }
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.confidential-access')) {
+                document.querySelectorAll('.role-dropdown.show').forEach(function(d) { d.classList.remove('show'); });
+            }
+        });
+
+        // Suggestions Panel
+        function showToast(message) {
+            var existing = document.querySelector('.toast');
+            if (existing) existing.remove();
+            var toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.classList.add('show'); }, 10);
+            setTimeout(function() {
+                toast.classList.remove('show');
+                setTimeout(function() { toast.remove(); }, 300);
+            }, 3000);
+        }
+
+        function applySuggestion(id, policyName, event) {
+            event.stopPropagation();
+            var card = document.getElementById(id);
+            card.classList.add('fade-out');
+            setTimeout(function() { card.style.display = 'none'; }, 400);
+            showToast('✓ Regra adicionada à Política de ' + policyName);
+        }
+
+        function ignoreSuggestion(id, event) {
+            event.stopPropagation();
+            var card = document.getElementById(id);
+            card.classList.add('fade-out');
+            setTimeout(function() { card.style.display = 'none'; }, 400);
+        }
+
     </script>
-</body>
+    </body>
 </html>
