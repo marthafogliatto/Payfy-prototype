@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- v3: vercel reconnect -->
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,11 +13,11 @@
         }
 
         :root {
-            --primary-orange: #FF6B35;
-            --primary-orange-dark: #E85A28;
+            --primary-orange: #E55A20;
+            --primary-orange-dark: #C94D1A;
             --primary-orange-light: #FFF5F0;
             
-            --success-green: #10B981;
+            --success-green: #059669;
             --success-green-light: #D1FAE5;
             
             --warning-yellow: #F59E0B;
@@ -30,7 +29,7 @@
             --purple: #8B5CF6;
             --purple-light: #EDE9FE;
             
-            --danger-red: #EF4444;
+            --danger-red: #DC2626;
             --danger-red-light: #FEE2E2;
             
             --gray-50: #FAFAFA;
@@ -60,6 +59,17 @@
             --radius-xl: 12px;
             --radius-2xl: 16px;
             
+            --blue-50: #EFF6FF;
+            --blue-200: #BFDBFE;
+            --blue-700: #1E40AF;
+            --blue-800: #1E3A8A;
+            --amber-600: #D97706;
+            --amber-900: #92400E;
+            --green-800: #065F46;
+            --red-700: #DC2626;
+            --slate-100: #F1F5F9;
+            --yellow-300: #FDE68A;
+
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -131,7 +141,7 @@
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: var(--radius-lg);
             font-size: 14px;
             font-weight: 600;
@@ -241,7 +251,7 @@
 
         .policy-badge {
             padding: 4px 12px;
-            border-radius: 20px;
+            border-radius: 16px;
             font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
@@ -310,7 +320,7 @@
         .trigger-badge {
             background: var(--gray-100);
             color: var(--gray-600);
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 16px;
             font-size: 11px;
             font-weight: 600;
@@ -332,7 +342,7 @@
         .trigger-value {
             background: var(--success-green-light);
             color: var(--success-green);
-            padding: 6px 12px;
+            padding: 8px 12px;
             border-radius: var(--radius-md);
             font-size: 14px;
             font-weight: 600;
@@ -416,7 +426,7 @@
 
         .condition-value {
             background: var(--gray-100);
-            padding: 6px 12px;
+            padding: 8px 12px;
             border-radius: var(--radius-md);
             font-size: 14px;
             color: var(--gray-900);
@@ -479,20 +489,20 @@
         .action-agent {
             background: var(--purple-light);
             color: var(--purple);
-            padding: 6px 14px;
+            padding: 8px 14px;
             border-radius: var(--radius-md);
             font-size: 14px;
             font-weight: 600;
             border: 1.5px solid var(--purple);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .action-approver {
             background: var(--warning-yellow-light);
-            color: #D97706;
-            padding: 6px 14px;
+            color: var(--amber-600);
+            padding: 8px 14px;
             border-radius: var(--radius-md);
             font-size: 14px;
             font-weight: 500;
@@ -505,7 +515,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #D97706;
+            background: var(--amber-600);
             color: white;
             display: flex;
             align-items: center;
@@ -654,8 +664,8 @@
         }
 
         .modal-close {
-            width: 32px;
-            height: 32px;
+            width: 44px;
+            height: 44px;
             border-radius: var(--radius-md);
             background: var(--gray-100);
             border: none;
@@ -765,7 +775,7 @@
             display: inline-flex;
             align-items: center;
             gap: var(--spacing-sm);
-            padding: 10px 20px;
+            padding: 12px 24px;
             background: var(--primary-orange);
             color: white;
             border: none;
@@ -982,8 +992,8 @@
 
         /* Agent Status Bar */
         .agent-status-bar {
-            background: #EFF6FF;
-            border: 1px solid #BFDBFE;
+            background: var(--blue-50);
+            border: 1px solid var(--blue-200);
             border-radius: 8px;
             padding: 12px 16px;
             display: flex;
@@ -1007,7 +1017,7 @@
         }
         .agent-status-label {
             font-weight: 700;
-            color: #1E40AF;
+            color: var(--blue-700);
             font-size: 14px;
         }
         .agent-status-info {
@@ -1018,18 +1028,12 @@
             position: relative;
         }
         .btn-configure {
-            background: #1E40AF;
+            background: var(--blue-700);
             color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+            padding: 12px 20px;
         }
         .btn-configure:hover {
-            background: #1E3A8A;
+            background: var(--blue-800);
         }
         .agent-dropdown {
             display: none;
@@ -1048,7 +1052,7 @@
             display: block;
         }
         .agent-dropdown-item {
-            padding: 10px 16px;
+            padding: 12px 16px;
             font-size: 13px;
             color: var(--gray-700);
             cursor: pointer;
@@ -1058,8 +1062,8 @@
             background: var(--gray-50);
         }
         .agent-dropdown-item.active {
-            background: #EFF6FF;
-            color: #1E40AF;
+            background: var(--blue-50);
+            color: var(--blue-700);
             font-weight: 600;
         }
         .agent-status-bar.mode-off {
@@ -1073,19 +1077,19 @@
             color: var(--gray-600);
         }
         .agent-status-bar.mode-test {
-            background: #FEF3C7;
-            border-color: #FDE68A;
+            background: var(--warning-yellow-light);
+            border-color: var(--yellow-300);
         }
         .agent-status-bar.mode-test .agent-status-dot {
             background: var(--warning-yellow);
         }
         .agent-status-bar.mode-test .agent-status-label {
-            color: #92400E;
+            color: var(--amber-900);
         }
 
         /* Navigation Tabs */
         .nav-tabs {
-            background: #F1F5F9;
+            background: var(--slate-100);
             border-radius: 8px;
             padding: 4px;
             display: flex;
@@ -1093,7 +1097,8 @@
             margin-bottom: var(--spacing-lg);
         }
         .nav-tab {
-            padding: 8px 20px;
+            padding: 10px 20px;
+            min-height: 44px;
             border: none;
             background: transparent;
             border-radius: 6px;
@@ -1140,23 +1145,23 @@
         /* Rule Groups */
         .rules-categorized { margin-bottom: var(--spacing-lg); }
         .rules-categorized.collapsed .category-content { display: none; }
-        .category-toggle { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--gray-100); border-radius:8px; cursor:pointer; font-size:13px; font-weight:600; color:var(--gray-700); margin-bottom:var(--spacing-sm); }
+        .category-toggle { display:flex; align-items:center; justify-content:space-between; padding:12px 14px; background:var(--gray-100); border-radius:8px; cursor:pointer; font-size:13px; font-weight:600; color:var(--gray-700); margin-bottom:var(--spacing-sm); }
         .rules-categorized.collapsed .category-toggle svg { transform: rotate(-90deg); }
         .category-content { display:flex; flex-direction:column; gap:var(--spacing-md); }
         .rule-group { border-radius:8px; padding:14px; border:1px solid; }
         .rule-group-agent { background:#F0FDF4; border-color:#BBF7D0; }
         .rule-group-flag { background:#FEF2F2; border-color:#FECACA; }
-        .rule-group-confidential { background:#FEF3C7; border-color:#FDE68A; }
-        .rule-group-header { margin-bottom:10px; }
-        .rule-group-badge { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; padding:3px 10px; border-radius:12px; }
-        .badge-agent { background:#D1FAE5; color:#065F46; }
+        .rule-group-confidential { background:#FEF3C7; border-color:var(--yellow-300); }
+        .rule-group-header { margin-bottom:12px; }
+        .rule-group-badge { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; padding:4px 12px; border-radius:16px; }
+        .badge-agent { background:#D1FAE5; color:var(--green-800); }
         .badge-flag { background:#FEE2E2; color:#991B1B; }
-        .badge-confidential { background:#FDE68A; color:#92400E; }
-        .rule-group-item { font-size:13px; color:var(--gray-700); padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.05); }
+        .badge-confidential { background:var(--yellow-300); color:var(--amber-900); }
+        .rule-group-item { font-size:13px; color:var(--gray-700); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); }
         .rule-group-item:last-of-type { border-bottom:none; }
         .flag-note { font-size:11px; color:var(--gray-500); margin-top:8px; font-style:italic; }
         .confidential-access { font-size:12px; color:var(--gray-600); margin-top:8px; position:relative; }
-        .access-roles { text-decoration:underline dotted; cursor:pointer; color:#92400E; font-weight:600; }
+        .access-roles { text-decoration:underline dotted; cursor:pointer; color:var(--amber-900); font-weight:600; }
         .role-dropdown { display:none; position:absolute; top:100%; left:0; background:white; border:1px solid var(--border); border-radius:8px; padding:8px; box-shadow:var(--shadow-lg); z-index:50; min-width:160px; }
         .role-dropdown.show { display:block; }
         .role-dropdown label { display:flex; align-items:center; gap:8px; padding:6px 8px; font-size:13px; color:var(--gray-700); cursor:pointer; border-radius:4px; }
@@ -1164,18 +1169,18 @@
         .confidential-tooltip { font-size:11px; color:var(--gray-500); margin-top:6px; font-style:italic; }
         /* Flags Override */
         .flags-override-section { background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:16px; margin-bottom:var(--spacing-lg); }
-        .flags-override-header { font-weight:700; color:#DC2626; font-size:14px; margin-bottom:12px; }
+        .flags-override-header { font-weight:700; color:var(--red-700); font-size:14px; margin-bottom:12px; }
         .flags-override-item { font-size:13px; color:var(--gray-700); padding:8px 0; border-bottom:1px solid rgba(220,38,38,0.1); }
         .flags-override-item:last-child { border-bottom:none; }
         .flags-override-note { font-size:11px; color:var(--gray-500); margin-top:10px; font-style:italic; }
         /* Hierarchy */
-        .default-badge { display:inline-block; background:#D1FAE5; color:#065F46; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; cursor:help; }
+        .default-badge { display:inline-block; background:#D1FAE5; color:var(--green-800); font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; cursor:help; }
         .agent-precondition { font-size:12px; color:var(--gray-500); padding-left:48px; margin-bottom:4px; font-style:italic; }
 
         /* Suggestions Panel */
         .suggestions-panel {
             background: #FFFBEB;
-            border: 1.5px solid #FDE68A;
+            border: 1.5px solid var(--yellow-300);
             border-radius: 12px;
             padding: var(--spacing-xl);
             margin-top: var(--spacing-xl);
@@ -1205,22 +1210,22 @@
         .suggestion-text { font-size: 13px; color: var(--gray-700); line-height: 1.5; }
         .suggestion-actions { display: flex; gap: 8px; flex-shrink: 0; }
         .btn-apply {
-            background: #1E40AF;
+            background: var(--blue-700);
             color: white;
             border: none;
-            padding: 6px 14px;
+            padding: 10px 16px;
             border-radius: 6px;
             font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
         }
-        .btn-apply:hover { background: #1E3A8A; }
+        .btn-apply:hover { background: var(--blue-800); }
         .btn-ignore {
             background: transparent;
             color: var(--gray-500);
             border: 1px solid var(--gray-300);
-            padding: 6px 14px;
+            padding: 10px 16px;
             border-radius: 6px;
             font-size: 12px;
             font-weight: 500;
@@ -1232,7 +1237,7 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background: #065F46;
+            background: var(--green-800);
             color: white;
             padding: 12px 20px;
             border-radius: 8px;
@@ -1245,6 +1250,36 @@
             transition: all 0.3s;
         }
         .toast.show { opacity: 1; transform: translateY(0); }
+
+        /* Focus-visible styles */
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 3px solid var(--info-blue);
+            outline-offset: 2px;
+            border-radius: var(--radius-sm);
+        }
+        .modal-close:focus-visible {
+            outline: 2px solid var(--info-blue);
+            outline-offset: 1px;
+        }
+
+        /* Responsive media queries */
+        @media (max-width: 1280px) {
+            .container { padding: var(--spacing-lg); }
+        }
+        @media (max-width: 1024px) {
+            .container { padding: var(--spacing-md); }
+            .policies-grid { gap: var(--spacing-md); }
+        }
+        @media (max-width: 768px) {
+            .header-content { flex-wrap: wrap; gap: var(--spacing-md); }
+            .agent-status-bar { flex-direction: column; align-items: flex-start; gap: var(--spacing-sm); }
+            .nav-tabs { flex-wrap: wrap; }
+            .suggestion-card { flex-direction: column; }
+            .suggestion-actions { align-self: flex-end; }
+        }
 
     </style>
 </head>
@@ -1264,6 +1299,7 @@
     </div>
 
     <!-- Main Content -->
+    <main>
     <div class="container">
         <div>
             <h1 class="page-title">Políticas de Gastos</h1>
@@ -1274,10 +1310,10 @@
             <div class="agent-status-left">
                 <span class="agent-status-dot"></span>
                 <span class="agent-status-label">Policy Agent ativo</span>
-                <span class="agent-status-info">Modo: Aprovação automática para &lt; R$ 2.000 · 99.1% acurácia (90 dias) · 847 transações avaliadas</span>
+                <span class="agent-status-info">Modo: Aprovação automática para até R$ 2.000 · 99.1% acurácia (90 dias) · 847 transações avaliadas</span>
             </div>
             <div class="agent-status-right">
-                <button class="btn-configure" onclick="toggleAgentDropdown(event)">Configurar</button>
+                <button class="btn btn-configure" onclick="toggleAgentDropdown(event)">Alterar modo</button>
                 <div class="agent-dropdown" id="agentDropdown">
                     <div class="agent-dropdown-item" onclick="setAgentMode('off', event)">Desativar Agent</div>
                     <div class="agent-dropdown-item" onclick="setAgentMode('test', event)">Modo teste (admins only)</div>
@@ -1288,12 +1324,14 @@
         </div>
 
         <!-- Navigation Tabs -->
-        <div class="nav-tabs" id="navTabs">
-            <button class="nav-tab active" onclick="switchMainTab('regras', event)">Regras</button>
-            <button class="nav-tab" onclick="switchMainTab('documento', event)">Documento</button>
-            <button class="nav-tab" onclick="switchMainTab('compliance', event)">Compliance</button>
-            <button class="nav-tab" onclick="switchMainTab('historico', event)">Histórico</button>
+        <nav aria-label="Navegação principal">
+        <div class="nav-tabs" id="navTabs" role="tablist" aria-label="Seções">
+            <button class="nav-tab active" role="tab" onclick="switchMainTab('regras', event)">Regras</button>
+            <button class="nav-tab" role="tab" onclick="switchMainTab('documento', event)">Documento</button>
+            <button class="nav-tab" role="tab" onclick="switchMainTab('compliance', event)">Compliance</button>
+            <button class="nav-tab" role="tab" onclick="switchMainTab('historico', event)">Histórico</button>
         </div>
+        </nav>
 
         <!-- Tab placeholders -->
         <div class="tab-placeholder" id="placeholder-documento" style="display:none;">
@@ -1321,13 +1359,13 @@
 
             <div class="policies-grid">
                 <!-- Política 1: Solicitações -->
-                <div class="policy-card" style="--bg-start: #F0F9FF; --bg-end: #E0F2FE;" onclick="togglePolicy(this)">
+                <div class="policy-card" aria-expanded="false" style="--bg-start: #F0F9FF; --bg-end: #E0F2FE;" onclick="togglePolicy(this)">
                     <div class="policy-header">
                         <div class="policy-header-top">
                             <div class="policy-type">
                                 <div class="policy-icon">📋</div>
                                 <div>
-                                    <div class="policy-name">Política de Solicitações</div>
+                                    <h3 class="policy-name">Política de Solicitações</h3>
                                 </div>
                             </div>
                             <div class="policy-badge badge-new">Nova</div>
@@ -1535,13 +1573,13 @@
                 </div>
 
                 <!-- Política 2: Despesas de Cartão -->
-                <div class="policy-card" style="--bg-start: #FEF3C7; --bg-end: #FDE68A;" onclick="togglePolicy(this)">
+                <div class="policy-card" aria-expanded="false" style="--bg-start: #FEF3C7; --bg-end: #FDE68A;" onclick="togglePolicy(this)">
                     <div class="policy-header">
                         <div class="policy-header-top">
                             <div class="policy-type">
                                 <div class="policy-icon">💳</div>
                                 <div>
-                                    <div class="policy-name">Política de Despesas de Cartão</div>
+                                    <h3 class="policy-name">Política de Despesas de Cartão</h3>
                                 </div>
                             </div>
                             <div class="policy-badge badge-new">Nova</div>
@@ -1588,20 +1626,20 @@
                             </button>
                             <button class="btn btn-primary" onclick="event.stopPropagation()">
                                 <span>👁️</span>
-                                <span>Ver Detalhes</span>
+                                <span>Ver Regras</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Política 3: Reembolsos -->
-                <div class="policy-card" style="--bg-start: #F3E8FF; --bg-end: #E9D5FF;" onclick="togglePolicy(this)">
+                <div class="policy-card" aria-expanded="false" style="--bg-start: #F3E8FF; --bg-end: #E9D5FF;" onclick="togglePolicy(this)">
                     <div class="policy-header">
                         <div class="policy-header-top">
                             <div class="policy-type">
                                 <div class="policy-icon">📄</div>
                                 <div>
-                                    <div class="policy-name">Política de Reembolsos</div>
+                                    <h3 class="policy-name">Política de Reembolsos</h3>
                                 </div>
                             </div>
                             <div class="policy-badge badge-new">Nova</div>
@@ -1648,20 +1686,20 @@
                             </button>
                             <button class="btn btn-primary" onclick="event.stopPropagation()">
                                 <span>👁️</span>
-                                <span>Ver Detalhes</span>
+                                <span>Ver Regras</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Política 4: Viagens -->
-                <div class="policy-card" style="--bg-start: #D1FAE5; --bg-end: #A7F3D0;" onclick="togglePolicy(this)">
+                <div class="policy-card" aria-expanded="false" style="--bg-start: #D1FAE5; --bg-end: #A7F3D0;" onclick="togglePolicy(this)">
                     <div class="policy-header">
                         <div class="policy-header-top">
                             <div class="policy-type">
                                 <div class="policy-icon">✈️</div>
                                 <div>
-                                    <div class="policy-name">Política de Viagens</div>
+                                    <h3 class="policy-name">Política de Viagens</h3>
                                 </div>
                             </div>
                             <div class="policy-badge badge-new">Nova</div>
@@ -1707,7 +1745,7 @@
                             </button>
                             <button class="btn btn-primary" onclick="event.stopPropagation()">
                                 <span>👁️</span>
-                                <span>Ver Detalhes</span>
+                                <span>Ver Regras</span>
                             </button>
                         </div>
                     </div>
@@ -1755,31 +1793,35 @@
                     </div>
                 </div>
             </div>
+            <div class="suggestions-empty" id="suggestionsEmpty" style="display:none; text-align:center; padding:24px; color:var(--gray-500); font-size:13px;">
+                Nenhuma sugestão pendente. O Agent analisará novos padrões em breve.
+            </div>
         </div>
     </div>
+    </main>
 
     <!-- Modal: Nova Política -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModalIfOutside(event)">
-        <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-overlay" id="modalOverlay" role="presentation" onclick="closeModalIfOutside(event)">
+        <div class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" onclick="event.stopPropagation()">
             <div class="modal-header">
                 <div class="modal-header-top">
-                    <h2 class="modal-title">✨ Criar Nova Política</h2>
-                    <button class="modal-close" onclick="closeModal()">✕</button>
+                    <h2 class="modal-title" id="modal-title">✨ Criar Nova Política</h2>
+                    <button class="modal-close" aria-label="Fechar modal" onclick="closeModal()">✕</button>
                 </div>
                 <p class="modal-subtitle">Escolha como deseja criar sua política</p>
             </div>
 
             <div class="modal-body">
                 <!-- Tabs -->
-                <div class="tabs">
-                    <button class="tab active" onclick="switchTab('upload', event)">📄 Upload de PDF</button>
-                    <button class="tab" onclick="switchTab('prompt', event)">💬 Descrever com IA</button>
-                                        <button class="tab" onclick="switchTab('template', event)">📋 Template Payfy</button>
-<button class="tab" onclick="switchTab('manual', event)">✏️ Criar Manualmente</button>
+                <div class="tabs" role="tablist" aria-label="Método de criação">
+                    <button class="tab active" role="tab" aria-selected="true" onclick="switchTab('upload', event)">📄 Upload de PDF</button>
+                    <button class="tab" role="tab" aria-selected="false" onclick="switchTab('prompt', event)">💬 Descrever com IA</button>
+                                        <button class="tab" role="tab" aria-selected="false" onclick="switchTab('template', event)">📋 Template Payfy</button>
+<button class="tab" role="tab" aria-selected="false" onclick="switchTab('manual', event)">✏️ Criar Manualmente</button>
                 </div>
 
                 <!-- Tab Content: Upload -->
-                <div class="tab-content active" id="tab-upload">
+                <div class="tab-content active" id="tab-upload" role="tabpanel">
                     <!-- Upload State -->
                     <div class="upload-container" id="uploadContainer">
                         <div class="upload-area" id="uploadArea">
@@ -1860,24 +1902,24 @@
                 </div>
 
                 <!-- Tab Content: Prompt -->
-                <div class="tab-content" id="tab-prompt">
+                <div class="tab-content" id="tab-prompt" role="tabpanel">
                     <p style="color: var(--gray-600); margin-bottom: var(--spacing-md);">
                         Em breve: Descreva suas regras em linguagem natural e deixe a IA criar automaticamente.
                     </p>
                 </div>
 
                 <!-- Tab Content: Manual -->
-                                <div class="tab-content" id="tab-template">
+                                <div class="tab-content" id="tab-template" role="tabpanel">
                     <div style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 12px; padding: 32px; text-align: center;">
                         <div style="font-size: 48px; margin-bottom: 16px;">📋</div>
                         <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 8px;">Template Payfy — Melhores Práticas Brasil</h3>
                         <p style="font-size: 14px; color: #4B5563; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto;">Construído a partir das melhores práticas do mercado brasileiro. Inclui regras para NF-e, VR/VA, CLT, e mais. Ajuste a qualquer momento.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px;">
-                            <span style="background: #D1FAE5; color: #065F46; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">NF-e</span>
-                            <span style="background: #FEF3C7; color: #92400E; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">VR/VA</span>
-                            <span style="background: #DBEAFE; color: #1E40AF; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">CLT</span>
-                            <span style="background: #EDE9FE; color: #5B21B6; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Per diem</span>
-                            <span style="background: #FEE2E2; color: #991B1B; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">CNPJ</span>
+                            <span style="background: #D1FAE5; color: #065F46; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 600;">NF-e</span>
+                            <span style="background: #FEF3C7; color: #92400E; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 600;">VR/VA</span>
+                            <span style="background: #DBEAFE; color: #1E40AF; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 600;">CLT</span>
+                            <span style="background: #EDE9FE; color: #5B21B6; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 600;">Per diem</span>
+                            <span style="background: #FEE2E2; color: #991B1B; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 600;">CNPJ</span>
                         </div>
                         <button class="btn btn-primary" style="width: 100%; max-width: 320px; justify-content: center;" onclick="event.stopPropagation()">
                             <span>✨</span>
@@ -1886,7 +1928,7 @@
                     </div>
                 </div>
 
-<div class="tab-content" id="tab-manual">
+<div class="tab-content" id="tab-manual" role="tabpanel">
                     <p style="color: var(--gray-600); margin-bottom: var(--spacing-lg);">
                         Você será redirecionado para o configurador visual de regras.
                     </p>
@@ -1919,16 +1961,22 @@
         // Tab Switching
         function switchTab(tabName, event) {
             event.stopPropagation();
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
             event.target.classList.add('active');
+            event.target.setAttribute('aria-selected', 'true');
             document.getElementById(`tab-${tabName}`).classList.add('active');
         }
 
         // Policy Toggle
         function togglePolicy(card) {
             card.classList.toggle('expanded');
+            var isExpanded = card.classList.contains('expanded');
+            card.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         }
 
         // Drag and Drop
@@ -2045,6 +2093,9 @@
 
         function setAgentMode(mode, event) {
             event.stopPropagation();
+            if (mode === 'off' && !confirm('Tem certeza que deseja desativar o Policy Agent? Transações não serão avaliadas automaticamente.')) {
+                return;
+            }
             const bar = document.getElementById('agentStatusBar');
             const label = bar.querySelector('.agent-status-label');
             const info = bar.querySelector('.agent-status-info');
@@ -2071,7 +2122,7 @@
                     break;
                 case 'auto':
                     label.textContent = 'Policy Agent ativo';
-                    info.textContent = 'Modo: Aprovação automática para < R$ 2.000 · 99.1% acurácia (90 dias) · 847 transações avaliadas';
+                    info.textContent = 'Modo: Aprovação automática para até R$ 2.000 · 99.1% acurácia (90 dias) · 847 transações avaliadas';
                     break;
             }
             document.getElementById('agentDropdown').classList.remove('show');
@@ -2132,11 +2183,24 @@
             }, 3000);
         }
 
+        function checkSuggestionsEmpty() {
+            var cards = document.querySelectorAll('.suggestion-card');
+            var allHidden = true;
+            cards.forEach(function(c) {
+                if (c.style.display !== 'none' && !c.classList.contains('fade-out')) {
+                    allHidden = false;
+                }
+            });
+            if (allHidden) {
+                document.getElementById('suggestionsEmpty').style.display = 'block';
+            }
+        }
+
         function applySuggestion(id, policyName, event) {
             event.stopPropagation();
             var card = document.getElementById(id);
             card.classList.add('fade-out');
-            setTimeout(function() { card.style.display = 'none'; }, 400);
+            setTimeout(function() { card.style.display = 'none'; checkSuggestionsEmpty(); }, 400);
             showToast('✓ Regra adicionada à Política de ' + policyName);
         }
 
@@ -2144,7 +2208,7 @@
             event.stopPropagation();
             var card = document.getElementById(id);
             card.classList.add('fade-out');
-            setTimeout(function() { card.style.display = 'none'; }, 400);
+            setTimeout(function() { card.style.display = 'none'; checkSuggestionsEmpty(); }, 400);
         }
 
     </script>
